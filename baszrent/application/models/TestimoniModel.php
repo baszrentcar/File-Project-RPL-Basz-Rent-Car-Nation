@@ -5,9 +5,10 @@ class TestimoniModel extends CI_model
     public function getAllTestimoni()
     {
         // get all data
-        $query = $this->db->query("SELECT * FROM testimoni");
+        $query = $this->db->query("SELECT * FROM testimoni JOIN costumer ON testimoni.no_ktp=costumer.no_ktp");
         return $query->result_array();
     }
+
 
     public function addTestimoni($data)
     {
