@@ -6,41 +6,31 @@ class LoginController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('CustomerModel');
-        $this->load->library('form_validation');
+        $this->load->model('LoginModel');
         $this->load->library('session');
     }
 
     public function index()
     {
-        $data['judul'] = 'Login';
-        $this->form_validation->set_rules('username', 'username', 'required');
-        $this->form_validation->set_rules('password', 'password', 'required');
+        $this->load->view('view_login');
+    }
 
-        // username = guest kalo gak login
-        // $guest =  array('username' => 'guest', 'role' => -1 );
-        // $this->session->set_userdata('user',$guest);
-
-        if ($this->form_validation->run() == false) {
-            //$this->load->view('templates/header', $data);
-            $this->load->view('Login');
-
-            //$this->load->view('templates/footer');
-        } else {
-            $uname = $this->input->post('username', true);
-            $user = $this->CustomerModel->getCustomerByUsername($uname);
-            if ($user) {
-                $pass = $this->input->post('password');
-                print('here');
-                if ($user['password'] == $pass) {
-                    $this->session->set_userdata('user', $user);
-                    redirect('MobilController');
-                } else {
-                    redirect('LoginController'); //pass salah
+    public function aksi_login() {
+        $data['username'] = $this->input->post('username');
+   		$data['password'] = $this->input->post('password');
+		 
+		if($this->LoginModel->login($data) == true) {
+            $data = $this->LoginModel->getProfile($data['username']);
+                if($data['level'] == 'customer') {                         
+                    $this->load->view('Home');
+                } else if ($data['level'] == "pemilik") {               
+                    $this->load->view('Signup');
                 }
-            } else {
-                redirect('LoginController'); //email salah
-            }
+   			$this->session->set_userdata('username', $this->input->post('username'));
+    		$this->session->set_userdata('password', $this->input->post('password'));
+		} 
+		else {
+            redirect('LoginController', $data);
         }
     }
 }
