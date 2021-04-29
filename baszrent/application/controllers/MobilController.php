@@ -18,7 +18,7 @@ class MobilController extends CI_Controller
         $data['mobil'] = $this->MobilModel->getAllMobil();
         //print_r($data['mobil']);
         $this->load->view('templates/header', $data);
-        $this->load->view('Mobil/index.php', $data);
+        $this->load->view('home.php', $data);
         $this->load->view('templates/footer');
     }
 
