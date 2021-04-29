@@ -1,0 +1,77 @@
+body {
+    background-image: url(assets/images/bg.jpg);
+    width: auto;
+    height: 954px;
+}
+
+a{
+    font-family: 'Roboto';
+}
+
+h3{
+    font-family: 'Roboto';
+    font-size: 36;
+    text-align: center;
+    color: #FF9900;
+    padding-bottom: 30px;
+}
+
+p{
+    font-size: 18;
+    color: #8E93A3;
+    padding-top: 10px;
+}
+
+.card{
+    background-color: white;
+    border-radius : 5px; 
+    margin-top: 80px;
+    margin-left: 80px;
+    margin-right: 850px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 100px;
+    padding-bottom: 200px
+}
+
+.card input[type="text"] {
+    border: none;
+    height: 40px;
+    width: 100%;
+    outline-color: #8E93A3;
+    border-color: #F8F8F8;
+    background-color: #F8F8F8;
+    border-radius: 5px;
+}
+
+.card input[type="password"] {
+    border: none;
+    height: 40px;
+    width: 100%;
+    outline-color: #8E93A3;
+    border-color: #F8F8F8;
+    background-color: #F8F8F8;
+    border-radius: 5px;
+}
+
+.card input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100%;
+    background-color: #FF9900;
+    color: white;
+    border-radius: 5px;
+    margin-top: 35px;
+}
+
+.card input[type="submit"]:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.wallpaper {
+    width: 100%;  
+    height: 100%;
+    background-position: absolute;
+}
