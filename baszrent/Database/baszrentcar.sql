@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2021 at 07:20 PM
+-- Generation Time: Apr 29, 2021 at 05:25 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -40,6 +40,7 @@ CREATE TABLE `costumer` (
 --
 
 INSERT INTO `costumer` (`no_ktp`, `nama`, `email`, `username`, `password`) VALUES
+('0099087', 'asdfghjkl', 'asd@gmail.com', 'asd', '123'),
 ('0099088', 'qwe', 'qwe@gmail.com', 'qwe', '321'),
 ('3123459876', 'ADMIN', 'admin@gmail.com', 'admin', '123');
 
@@ -145,8 +146,8 @@ CREATE TABLE `testimoni` (
 --
 
 INSERT INTO `testimoni` (`id_testimoni`, `no_ktp`, `pesan`, `rating`) VALUES
-(3, 'dump', 'mantap', ''),
-(4, 'dump', 'mantap', '');
+(3, '0099087', 'mantap', ''),
+(4, '0099088', 'good', '');
 
 --
 -- Indexes for dumped tables
