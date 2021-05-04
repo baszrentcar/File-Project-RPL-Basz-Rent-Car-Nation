@@ -4,7 +4,7 @@ class PemesananModel extends CI_model
 {
     public function addPemesanan()
     {
-        // //use query builder to insert $data to table "pemesanan"
+        // query untuk menambahkan data pemesanan baru di database
         $data = [
             "id_pemesanan" => $this->input->post('id_pemesanan', true),
             "tanggal_pesan" => $this->input->post('tanggal_pesan', true),
@@ -16,7 +16,7 @@ class PemesananModel extends CI_model
 
     public function getPemesananById($id_pemesanan)
     {
-        //get data  based on id 
+        //mengambil/memanggil data pemesanan berdasarkan id pemesanan pada database
         $query = $this->db->query("SELECT * FROM pemesanan WHERE id_pemesanan = '" . $id_pemesanan . "'");
         return $query->row_array();
     }
