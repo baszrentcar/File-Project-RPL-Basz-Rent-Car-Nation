@@ -21,10 +21,10 @@ class SignupController extends CI_Controller
 
     public function signup()
     {
-        // set rule username, password, fullname, email  required
+        // set rule username, password, nama, email, no_ktp  required
         $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required');
-        $this->form_validation->set_rules('name', 'name', 'required');
+        $this->form_validation->set_rules('nama', 'nama', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
         $this->form_validation->set_rules('no_ktp', 'no_ktp', 'required');
 
@@ -38,9 +38,9 @@ class SignupController extends CI_Controller
         {
             $this->CustomerModel->addCustomer();
 
-            // panggil fungsi getUserByUsername dan simpan di variabel
-            //$this->load->library('session');
-            //$this->session->set_flashdata('user', $this->AccountModel->getUserByUsername($this->input->post('username', true)));
+            //panggil fungsi getCustomerByUsername dan simpan di session
+            $this->load->library('session');
+            $this->session->set_flashdata('user', $this->CustomerModel->getCustomerByUsername($this->input->post('username', true)));
             // load home
             redirect('MobilController');
         }
