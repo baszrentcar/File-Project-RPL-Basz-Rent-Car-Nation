@@ -21,7 +21,8 @@ class MobilController extends CI_Controller
         $this->load->view('home', $data);
         $this->load->view('templates/footer');
     }
-
+	
+	//implementasi usecase edit mobil
     public function update($id_mobil)
     {
         //edit/update data mobil yang ada di db mobil berdasarkan id_mobil
@@ -73,7 +74,8 @@ class MobilController extends CI_Controller
             $this->load->view('templates/footer');
         }
     }
-
+	
+	//implementasi usecase add mobil
     public function Save()
     {
         //untuk add data mobil baru
@@ -126,7 +128,8 @@ class MobilController extends CI_Controller
             $this->load->view('templates/footer');
         }
     }
-
+	
+	//implementasi usecase delete mobil
     public function delete($id_mobil)
     {
         //menghapus data mobil berdasarkan id_mobil
