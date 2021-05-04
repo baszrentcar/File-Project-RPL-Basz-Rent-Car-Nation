@@ -4,7 +4,7 @@ class SupirModel extends CI_model
 {
     public function addSupir()
     {
-        // //use query builder to insert $data to table "supir"
+        //query untuk menambahkan data supir baru di database
         $data = [
             "id_supir" => $this->input->post('id_supir', true),
             "nama" => $this->input->post('nama', true),
@@ -14,7 +14,7 @@ class SupirModel extends CI_model
 
     public function getSupirById($id_supir)
     {
-        //get data  based on id 
+        // mengambil/memanggil data supir berdasarkan id supir pada database
         $query = $this->db->query("SELECT * FROM supir WHERE id_supir = '" . $id_supir . "'");
         return $query->row_array();
     }
