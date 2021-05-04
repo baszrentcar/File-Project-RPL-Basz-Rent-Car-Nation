@@ -20,6 +20,7 @@ class TestimoniController extends CI_Controller
         $this->load->view('Testimoni/index', $data);
     }
 
+	// implementasi usecase add testimoni
     // menginputkan testimoni baru pada database
     public function inputTesti()
     {
@@ -54,7 +55,8 @@ class TestimoniController extends CI_Controller
             redirect('TestimoniController');
         }
     }
-
+	
+	// implementasi use case delete testimoni
     // menghapus testimoni di database berdasarkan id testimoni 
     public function deleteTesti($id_testimoni)
     {
