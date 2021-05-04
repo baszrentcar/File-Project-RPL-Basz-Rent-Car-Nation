@@ -2,7 +2,6 @@
 
 class TestimoniController extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -13,12 +12,15 @@ class TestimoniController extends CI_Controller
 
     public function index()
     {
+        //mengakses view testimoni
+        $this->load->view('inputTesti');
         $data['judul'] = 'Testimoni';
         //$data['user'] = $this->session->userdata('user');
         $data['testimoni'] = $this->TestimoniModel->getAllTestimoni();
         $this->load->view('Testimoni/index', $data);
     }
 
+    // menginputkan testimoni baru pada database
     public function inputTesti()
     {
         $data['judul'] = 'Tambah Testimoni';
@@ -26,9 +28,11 @@ class TestimoniController extends CI_Controller
         $this->load->view('Testimoni/inputTesti');
     }
 
+    // menambahkan testimoni baru
     public function addTesti()
     {
         // set rule username, password, fullname, email  required
+        // mengset user yang menginputkan testimoni
         $data['user'] = $this->session->userdata('user');
 
         $this->form_validation->set_rules('pesan', 'pesan', 'required');
@@ -51,26 +55,10 @@ class TestimoniController extends CI_Controller
         }
     }
 
+    // menghapus testimoni di database berdasarkan id testimoni 
     public function deleteTesti($id_testimoni)
     {
         $this->TestimoniModel->deleteTestimoni($id_testimoni);
         redirect('TestimoniController');
-    }
-
-    public function generateId($nama_user)
-    {
-        //id mengubah string menjadi array
-        //new untuk mengambil huruf pertama tiap kata. misal 'toyota avanza' -> 'ta'
-        //count untuk menghitung berapa id 'ta' di database
-
-        $id = explode(' ', $nama_user);
-        $new = substr($id[0], 0, 1);
-        if (strlen($id > 1)) {
-            for ($i = 1; strlen($id); $i++) {
-                $new = $new . substr($id[$i], 0, 1);
-            }
-        }
-        $count = $this->TestimoniModel->countId($new);
-        return $new . $count;
     }
 }
