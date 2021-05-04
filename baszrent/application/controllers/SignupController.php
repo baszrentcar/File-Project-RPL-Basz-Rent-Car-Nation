@@ -18,7 +18,8 @@ class SignupController extends CI_Controller
         //$data['user'] = $this->session->userdata('user');
         $this->load->view('signup');
     }
-
+	
+	//implementasi use case register
     public function signup()
     {
         // set rule username, password, nama, email, no_ktp  required
