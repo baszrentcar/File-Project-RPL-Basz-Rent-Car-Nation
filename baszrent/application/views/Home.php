@@ -1,23 +1,11 @@
 <head>
-    <style>
-        .card-item{
-            margin-left: 240px;
-        }
-        .media-body{
-            margin-left: 80px;
-        }
-        .btn btn-primary{
-            position: absolute;
-        }
-        .card-item2{
-            background-color: 010F35;
-        }
-        </style>
+    <link href="<?php echo base_url('assets/css/home.css')?>" rel="stylesheet">
 </head>
-
 <h1 style="background-color: #010F35;">.</h1>
+<img class="card-img" src="<?php base_url()?>assets/images/home/banner_home.png" alt="Card image" width="1200" height="250">
+
 <div class="card-item">
-    <br>
+    <br> <br>
     <h3>Pilih Mobil Untuk di Edit</h3>
     <h7>Menampilkan mobil untuk diedit</h7>
     <br><br>
@@ -164,4 +152,8 @@
             </div>
         </div>
     <?php } ?>
+    
 </div>
+<br><br><br><br>  <br><br><br><br>
+    <img class="card-img" src="<?php base_url()?>assets/images/home/footer.png" alt="Card image">
+    <br><br><br><br>
