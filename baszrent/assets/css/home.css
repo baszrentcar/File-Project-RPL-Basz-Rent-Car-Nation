@@ -1,12 +1,53 @@
 .card-item{
-    margin-left: 240px;
+    margin-left: 40px;
+    
 }
 .media-body{
-    margin-left: 80px;
+    margin-left: 40px;
+    margin-right: 80px;
+    width: 700px;
 }
 .btn btn-primary{
     position: absolute;
 }
 .card-item2{
     background-color: 010F35;
+}
+.content{
+    margin-left: 120px;
+
+}
+.col-md-auto{
+    border: 1px solid gray;
+    margin-top: 50px;
+}
+h7{
+    font: Roboto;
+}
+p{
+    color: gray;
+}
+b{
+    font-size: 20;
+}
+.psn{
+    float: right;
+    color: white;
+    background-color: #FF9900;
+    border: 0;
+    width: 120px;
+}
+.harga{
+    float: right;
+}
+.btn-tambah{
+    font-weight: bold;
+    font: Roboto;
+    font-size: 16px;
+    margin-right: 80px;
+    float:right;
+}
+.nav-item{
+    margin-left: 40px;
+    color: #010F35;
 }
