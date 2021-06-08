@@ -1,13 +1,9 @@
-<html>
-
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!DOCTYPE html>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
         .center {
             text-align: center;
@@ -23,17 +19,15 @@
             font-size: 64;
         }
 
-        p,
-        a {
+        p,a {
             color: white;
             font-family: roboto;
             font-size: 24;
         }
 
-        .card,
-        car {
+        .card,car {
             background-color: white;
-            font-color: black;
+            color: black;
             font-family: roboto;
             font-size: 24;
             margin-right: 150px;
@@ -50,7 +44,6 @@
             margin-left: 40px;
         }
     </style>
-
 </head>
 
 <body>
@@ -58,8 +51,7 @@
     <br></br>
     <div class="center">
         <h2>Apa Kata Mereka?</h2>
-        <p>Ayo tulliskan pengalamanmu dengan kamu,
-            <a href="<?= site_url('TestimoniController/inputTesti') ?>">Klik disini</a>
+        <p>Ayo tulliskan pengalamanmu dengan kamu,<a href=""> Klik disini</a>
         </p>
         <br></br>
         <br></br>
@@ -80,5 +72,3 @@
 
 
 </body>
-
-</html>
