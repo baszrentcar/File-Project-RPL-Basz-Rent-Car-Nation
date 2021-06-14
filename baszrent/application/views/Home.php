@@ -101,7 +101,7 @@
                         <?php foreach ($mobil as $m) { ?>
                             <div class="row">
                                 <div class="media position-relative">
-                                    <img height="100px" aaclass="mr-3" src="assets/images/rs/icon.png" alt="foto mobil">
+                                    <img height="100px" aaclass="mr-3" src="<?= site_url('/assets/images/mobil/' . $m['photo']) ?>" alt="foto mobil">
                                     <div class="media-body">
                                         <h4 class="mt-0"><?= $m['nama_mobil'] ?></h4>
                                         <p class="harga"><?= $m['harga'] ?></p>
