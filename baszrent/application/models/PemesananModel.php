@@ -2,15 +2,10 @@
 
 class PemesananModel extends CI_model
 {
-    public function addPemesanan()
+    public function addPemesanan($data)
     {
         // query untuk menambahkan data pemesanan baru di database
-        $data = [
-            "id_pemesanan" => $this->input->post('id_pemesanan', true),
-            "tanggal_pesan" => $this->input->post('tanggal_pesan', true),
-            "tanggal_kembali" => $this->input->post('tanggal_kembali', true),
-            "id_supir" => $this->input->post('id_supir', true),
-        ];
+
         $this->db->insert('account', $data);
     }
 
