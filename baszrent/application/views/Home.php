@@ -199,7 +199,9 @@
                                         <div class="modal-body">
                                             <?php echo form_open(base_url('MobilController/update/' . $m['id_mobil']), array('enctype' => 'multipart/form-data')); ?>
                                             <div>
-                                                <img height="250px" src="<?= base_url() ?>assets/images/mobil/<?= $m['photo'] ?>" alt="foto mobil">
+												<center>
+                                                	<img height="250px" src="<?= base_url() ?>assets/images/mobil/<?= $m['photo'] ?>" alt="foto mobil">
+												</center>
                                             </div>
                                             <div>
                                                 <label>Nama Mobil</label>
