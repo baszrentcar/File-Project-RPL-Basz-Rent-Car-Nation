@@ -9,6 +9,12 @@ class CustomerModel extends CI_model
 		return $query->result_array();
 	}
 
+	public function login($uname, $pass)
+	{
+		$query = $this->db->query("SELECT * FROM costumer WHERE username = '" . $uname . "' AND password = '" . $pass . "'");
+		return $query->row_array();
+	}
+
 	public function addCustomer()
 	{
 		//insert data customer ke db customer
@@ -18,15 +24,9 @@ class CustomerModel extends CI_model
 			"email" => $this->input->post('email', true),
 			"username" => $this->input->post('username', true),
 			"password" => $this->input->post('password', true),
+			"level" => 'customer'
 		];
-		$data2= [
-            		'id' => '',
-            		'username' => $this->input->post('username'),
-            		'password' => $this->input->post('password'),
-            		'level' => 'customer'
-        	];
 		$this->db->insert('costumer', $data);
-		$this->db->insert('pengguna', $data2);
 	}
 
 	public function getCustomerByUsername($uname)
