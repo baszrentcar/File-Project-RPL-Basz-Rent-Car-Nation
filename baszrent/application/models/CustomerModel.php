@@ -19,7 +19,14 @@ class CustomerModel extends CI_model
 			"username" => $this->input->post('username', true),
 			"password" => $this->input->post('password', true),
 		];
+		$data2= [
+            		'id' => '',
+            		'username' => $this->input->post('username'),
+            		'password' => $this->input->post('password'),
+            		'level' => 'customer'
+        	];
 		$this->db->insert('costumer', $data);
+		$this->db->insert('pengguna', $data2);
 	}
 
 	public function getCustomerByUsername($uname)
