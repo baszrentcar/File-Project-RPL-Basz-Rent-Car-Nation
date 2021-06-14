@@ -13,19 +13,23 @@ class TestimoniController extends CI_Controller
     public function index()
     {
         //mengakses view testimoni
+        //$this->load->view('inputTesti');
         $data['judul'] = 'Testimoni';
-        //$data['user'] = $this->session->userdata('user');
+        $data['user'] = $this->session->userdata('user');
         $data['testimoni'] = $this->TestimoniModel->getAllTestimoni();
         $this->load->view('Testimoni/index', $data);
     }
 
-	// implementasi usecase add testimoni
+    // implementasi usecase add testimoni
     // menginputkan testimoni baru pada database
     public function inputTesti()
     {
         $data['judul'] = 'Tambah Testimoni';
-        //$data['user'] = $this->session->userdata('user');
-        $this->load->view('Testimoni/inputTesti');
+
+        $data['user'] = $this->session->userdata('user');
+        $this->load->view('templates/header', $data);
+        $this->load->view('Testimoni/inputTesti', $data);
+        $this->load->view('templates/footer');
     }
 
     // menambahkan testimoni baru
@@ -36,26 +40,24 @@ class TestimoniController extends CI_Controller
         $data['user'] = $this->session->userdata('user');
 
         $this->form_validation->set_rules('pesan', 'pesan', 'required');
+        $this->form_validation->set_rules('rating', 'rating', 'required');
         $add = [
             "id_testimoni" => '',
-            "no_ktp" => 'dump',
+            "no_ktp" => $data['user']['no_ktp'],
             "pesan" => $this->input->post('pesan', true),
-            "rating" => ''
+            "rating" => $this->input->post('rating', true)
         ];
         // if form_valid gagal 
         if ($this->form_validation->run() == FALSE) {
-            $data['judul'] = 'Testimoni';
-            //$this->load->view('templates/header', $data);
-            $this->load->view('Testimoni/inputTesti');
-            //$this->load->view('templates/footer');
+            redirect('TestimoniController/inputTesti');
         } else // else berhasil panggil fungsi 
         {
             $this->TestimoniModel->addTestimoni($add);
             redirect('TestimoniController');
         }
     }
-	
-	// implementasi use case delete testimoni
+
+    // implementasi use case delete testimoni
     // menghapus testimoni di database berdasarkan id testimoni 
     public function deleteTesti($id_testimoni)
     {
