@@ -51,7 +51,7 @@
     <br></br>
     <div class="center">
         <h2>Apa Kata Mereka?</h2>
-        <p>Ayo tulliskan pengalamanmu dengan kamu,<a href=""> Klik disini</a>
+        <p>Ayo tulliskan pengalamanmu dengan kamu,<a href="<?= site_url('TestimoniController/inputTesti') ?>"> Klik disini</a>
         </p>
         <br></br>
         <br></br>
