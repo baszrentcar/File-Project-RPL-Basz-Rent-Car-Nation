@@ -17,7 +17,9 @@ class TestimoniController extends CI_Controller
         $data['judul'] = 'Testimoni';
         $data['user'] = $this->session->userdata('user');
         $data['testimoni'] = $this->TestimoniModel->getAllTestimoni();
+        $this->load->view('templates/header', $data);
         $this->load->view('Testimoni/index', $data);
+        $this->load->view('templates/footer');
     }
 
     // implementasi usecase add testimoni
