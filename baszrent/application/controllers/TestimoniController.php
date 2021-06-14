@@ -13,7 +13,6 @@ class TestimoniController extends CI_Controller
     public function index()
     {
         //mengakses view testimoni
-        $this->load->view('inputTesti');
         $data['judul'] = 'Testimoni';
         //$data['user'] = $this->session->userdata('user');
         $data['testimoni'] = $this->TestimoniModel->getAllTestimoni();
