@@ -14,10 +14,11 @@ class HomeController extends CI_Controller
     {
         $data['judul'] = 'Home';
         $data['user'] = $this->session->userdata('user');
-
         $this->load->view('Home', $data);
     }
-
-    
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('MobilController');
+    }
 }
-
