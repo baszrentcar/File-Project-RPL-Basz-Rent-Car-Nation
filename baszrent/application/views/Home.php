@@ -101,7 +101,7 @@
                         <?php foreach ($mobil as $m) { ?>
                             <div class="row">
                                 <div class="media position-relative">
-                                    <img height="100px" aaclass="mr-3" src="<?= site_url('/assets/images/mobil/' . $m['photo']) ?>" alt="foto mobil">
+                                    <img height="100px" width="170px" aaclass="mr-3" src="<?= site_url('/assets/images/mobil/' . $m['photo']) ?>" alt="foto mobil">
                                     <div class="media-body">
                                         <h4 class="mt-0"><?= $m['nama_mobil'] ?></h4>
                                         <p class="harga"><?= $m['harga'] ?></p>
@@ -110,7 +110,7 @@
                                         <p><?= $m['status'] ?></p>
                                         <!--<p><?= $m['deskripsi'] ?></p>-->
                                         <?php if (isset($user)) { ?>
-                                            <a href="<?= base_url('PemesananController') ?>" class="btn btn-primary psn" class="btn-psn">Sewa</a>
+                                            <a href="<?= base_url('PemesananController/index/' . $m['id_mobil']) ?>" class="btn btn-primary psn" class="btn-psn">Sewa</a>
                                         <?php } ?>
                                         <a type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=""> Lihat</a>
                                         <?php if (isset($user) && $user['level'] == "pemilik") { ?>
@@ -171,10 +171,13 @@
                                             </div>
 
                                         </table>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <input type="submit" class="btn btn-primary" name="submit" value="Simpan">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+
+                                        <div class="modal-footer">
+                                            <input type="submit" class="btn btn-primary" name="submit" value="Simpan">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                        </div>
+
+                                        <?php echo form_close(); ?>
                                     </div>
                                 </div>
                             </div>
@@ -194,47 +197,47 @@
 
                                         <!-- <?= $m['photo'] ?> -->
                                         <div class="modal-body">
-                                            <form method="POST" action="<?= base_url() . 'MobilController/update/' . $m['id_mobil'] ?>">
-                                                <div>
-                                                    <img height="250px" src="<?= base_url() ?>assets/images/mobil/<?= $m['photo'] ?>" alt="foto mobil">
-                                                </div>
-                                                <div>
-                                                    <label>Nama Mobil</label>
-                                                    <input class="form-control" type="text" name="nama_mobil" value="<?= $m['nama_mobil'] ?>" required>
-                                                </div>
-                                                <div>
-                                                    <label>Warna</label>
-                                                    <input class="form-control" type="text" name="warna" value="<?= $m['warna'] ?>" required>
-                                                </div>
-                                                <div>
-                                                    <label>Plat Nomor</label>
-                                                    <input class="form-control" type="text" name="plat_nomor" value="<?= $m['plat_nomor'] ?>" required>
-                                                </div>
-                                                <div>
-                                                    <label>Deskripsi</label>
-                                                    <textarea class="form-control" type="text" name="deskripsi" required><?= $m['deskripsi'] ?> </textarea>
-                                                </div>
-                                                <div>
-                                                    <label>Harga</label>
-                                                    <input class="form-control" type="number" name="harga" value="<?= $m['harga'] ?>" required>
-                                                </div>
-                                                <div>
-                                                    <label>Penumpang</label>
-                                                    <input class="form-control" type="number" name="penumpang" value="<?= $m['Penumpang'] ?>" required>
-                                                </div>
-                                                <div>
-                                                    <label>Bagasi</label>
-                                                    <input class="form-control" type="number" name="bagasi" value="<?= $m['Bagasi'] ?>" required>
-                                                </div>
-                                                <div>
-                                                    <label>Gambar</label><br>
-                                                    <input type="file" name="gambar">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <input type="submit" class="btn btn-primary" name="submit" value="Simpan">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                </div>
-                                            </form>
+                                            <?php echo form_open(base_url('MobilController/update/' . $m['id_mobil']), array('enctype' => 'multipart/form-data')); ?>
+                                            <div>
+                                                <img height="250px" src="<?= base_url() ?>assets/images/mobil/<?= $m['photo'] ?>" alt="foto mobil">
+                                            </div>
+                                            <div>
+                                                <label>Nama Mobil</label>
+                                                <input class="form-control" type="text" name="nama_mobil" value="<?= $m['nama_mobil'] ?>" required>
+                                            </div>
+                                            <div>
+                                                <label>Warna</label>
+                                                <input class="form-control" type="text" name="warna" value="<?= $m['warna'] ?>" required>
+                                            </div>
+                                            <div>
+                                                <label>Plat Nomor</label>
+                                                <input class="form-control" type="text" name="plat_nomor" value="<?= $m['plat_nomor'] ?>" required>
+                                            </div>
+                                            <div>
+                                                <label>Deskripsi</label>
+                                                <textarea class="form-control" type="text" name="deskripsi" required><?= $m['deskripsi'] ?> </textarea>
+                                            </div>
+                                            <div>
+                                                <label>Harga</label>
+                                                <input class="form-control" type="number" name="harga" value="<?= $m['harga'] ?>" required>
+                                            </div>
+                                            <div>
+                                                <label>Penumpang</label>
+                                                <input class="form-control" type="number" name="penumpang" value="<?= $m['Penumpang'] ?>" required>
+                                            </div>
+                                            <div>
+                                                <label>Bagasi</label>
+                                                <input class="form-control" type="number" name="bagasi" value="<?= $m['Bagasi'] ?>" required>
+                                            </div>
+                                            <div>
+                                                <label>Gambar</label><br>
+                                                <input type="file" name="gambar">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input type="submit" class="btn btn-primary" name="submit" value="Simpan">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            </div>
+                                            <?php echo form_close(); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -246,8 +249,5 @@
             </div>
         </div>
     </div>
-</body>
 
-<br><br><br><br><br><br><br><br>
-<img class="card-img" src="<?php base_url() ?>assets/images/home/footer.png" alt="Card image">
-<br><br><br><br>
+</body>
