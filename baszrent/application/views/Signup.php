@@ -81,7 +81,7 @@
         }
 
         body {
-            background-image: url(bg.png);
+            background-image: url(assets/images/bg.png);
             width: auto;
             height: 954;
         }
