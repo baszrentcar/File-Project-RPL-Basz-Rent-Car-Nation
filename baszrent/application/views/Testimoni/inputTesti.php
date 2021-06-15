@@ -20,7 +20,7 @@
         }
 
         p {
-            margin-top: 40px;
+            margin-top: 19px;
             margin-left: 120px;
             font: Roboto;
         }
@@ -169,7 +169,7 @@
                 <br>
                 <input type="submit" class="btn btn-primary psn" class="btn-psn" onclick="cek_rating()" value="KIRIM">
                 <!-- <a href="" class="btn btn-primary psn" class="btn-psn">KIRIM</a> -->
-                <a href="" class="btn back" class="btn-psn">Kembali</a>
+                <p href="<?= base_url('TestimoniController'); ?>" class="btn btn-primary back" class="btn-psn">Kembali</p>
             </div>
         </form>
 
