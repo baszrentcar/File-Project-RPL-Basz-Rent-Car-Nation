@@ -90,6 +90,10 @@
                 <?php } ?>
                 <!-- END IF RATING -->
 
+                <?php if (isset($user) && $user['level'] == "pemilik") { ?>
+                    <a type="button" class="btn btn-danger btn-sm" href="<?php echo base_url('TestimoniController/deleteTesti/') . $t['id_testimoni'] ?>" onClick="return confirm('Apakah Anda Yakin untuk menghapus?')">Delete</a></td>
+                <?php } ?>
+
             </div>
         </div>
         <br>
